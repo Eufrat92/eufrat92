@@ -1,113 +1,186 @@
-import Image from "next/image";
+"use client"
+import Image from "next/image"
+import Inter, { Londrina_Sketch } from "next/font/google"
+import Link from "next/link"
+import { useState } from "react"
+import { useEffect} from 'react';
 
-export default function Home() {
+export default function Main() {
+  return <>
+    <div className="snap-y snap-mandatory overflow-y-scroll h-screen w-screen no-scrollbar">
+      <Sidebar/>
+      <div className="snap-always snap-center">
+        <About/>
+      </div>
+      <div className="snap-always snap-center">
+        <Portofolio/>
+      </div>
+      <div className="snap-always snap-center">
+        <Skills/>
+      </div>
+      <div className="snap-always snap-center"  >
+        <Contact/>
+      </div>
+    </div>
+  </>
+}
+
+function About() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
+    <div className="whitespace-nowrap h-screen w-screen bg-[#575757]" id="about">
+      <div className="pl-[350px] pt-[110px]">
+        <p className="text-[18px] tracking-[6px] font-light text-[#A2E4B0]">ABOUT ME</p>
+        <div className="flex flex-row mt-[-4]">
+          <p className="text-[72px] font-bold">Hi, Im</p><p className="text-[72px] font-bold text-[#A2E4B0] pl-4">Repat Dwi Gunanda</p>
+        </div>
+        <p className="text-[36px] font-semibold mt-[-8px]">Frontend Developer</p>
+        <p className="text-[20px] font-normal mt-4">
+          I am capable of creating and developing <br/>
+          mobile applications and web, especially <br/>
+          on the frontend. I also have an interest <br /> 
+          in game development and 3D modelling.
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        <Link rel="download" href="https://drive.google.com/drive/folders/10_fGNfMo3wFBek1dZwofJmSQT1CTn_98" className="w-[170px] h-[45px] bg-[rgb(162,228,176)] rounded-[15px] mt-8 flex justify-center items-center hover:border-2 border-black">
+          <p className="text-[20px] text-[#575757]">Download CV</p>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+function Portofolio() {
+  return (
+    <div className="whitespace-nowrap h-screen w-screen bg-[#575757] z-50" id="portofolio">
+      <div className="pl-[350px] pt-[110px]">
+        <p className="text-[18px] tracking-[6px] font-light text-[#A2E4B0]">PORTOFOLIO</p>
+        <div className="flex flex-row mt-[-4]">
+          <p className="text-[72px] font-bold">My Recent</p><p className="text-[72px] font-bold text-[#A2E4B0] pl-4">Project</p>
+        </div>
+        <div className="w-[900px] h-[400px] bg-[#4D4D4D] rounded-[25px] drop-shadow-[2px_2px_3px_#000000] mt-2 p-4 flex-row flex">
+          <div className="ml-2">
+            <Image src="/images/sekolahku.png" alt="profile" width={160} height={180} className="rounded-[5px]"/>
+          </div>
+          <div className="mt-2 ml-4">
+            <p className="text-[36px] font-semibold text-[#A2E4B0]">Sekolahku</p>
+            <p className="text-[20px] font-normal mt-4">
+              Sekolahku is a mobile and desktop-based applications that combines <br/> 
+              three different applications. This applications will remind students of<br/>
+              their lesson schedule, picket schedule, assignments, and morning <br/> 
+              habituation schedule. It also has features for student attendance and<br/>
+              smart trash bins.
+            </p>
+          </div>
         </div>
       </div>
+    </div>
+  )
+}
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+function Skills() {
+  return (
+    <div className="whitespace-nowrap h-screen w-screen bg-[#575757] z-50" id="skills">
+      <div className="pl-[350px] pt-[110px]">
+        <p className="text-[18px] tracking-[6px] font-light text-[#A2E4B0]">SKILLS</p>
+        <div className="flex flex-row mt-[-4]">
+          <p className="text-[72px] font-bold">Things Im</p><p className="text-[72px] font-bold text-[#A2E4B0] pl-4">Good At</p>
+        </div>
+        <div className="flex flex-row mt-4">
+          <div className="w-[110px] h-[110px] p-4 bg-[#4D4D4D] mt-4 rounded-[25px] drop-shadow-[2px_2px_3px_#000000] flex justify-center items-center">
+            <Image src="/images/html.png" alt="profile" width={80} height={80} />
+          </div>
+          <div className="w-[110px] h-[110px] p-2 bg-[#4D4D4D] ml-12 mt-4 rounded-[25px] drop-shadow-[2px_2px_3px_#000000] flex justify-center items-center">
+            <Image src="/images/css.png" alt="profile" width={85} height={85} />
+          </div>
+          <div className="w-[110px] h-[110px] p-4 bg-[#4D4D4D] ml-12 mt-4 rounded-[25px] drop-shadow-[2px_2px_3px_#000000] flex justify-center items-center">
+            <Image src="/images/js.png" alt="profile" width={80} height={80} />
+          </div>
+          <div className="w-[110px] h-[110px] p-4 bg-[#4D4D4D] ml-12 mt-4 rounded-[25px] drop-shadow-[2px_2px_3px_#000000] flex justify-center items-center">
+            <Image src="/images/flutter.png" alt="profile" width={80} height={80} />
+          </div>
+          <div className="w-[110px] h-[110px] p-4 bg-[#4D4D4D] ml-12 mt-4 rounded-[25px] drop-shadow-[2px_2px_3px_#000000] flex justify-center items-center">
+            <Image src="/images/blender.png" alt="profile" width={80} height={80} />
+          </div>
+        </div>
+        <p className="text-[20px] font-normal mt-12">
+        The programming languages I am good at are Dart and JavaScript,<br/>
+        Im also able to use frameworks such as next js, flutter, and tailwind.<br/>
+        I can also do 3D modelling using 3D blender.</p>
       </div>
+    </div>
+  )
+}
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+function Contact() {
+  return (
+    <div className="whitespace-nowrap h-screen w-screen bg-[#575757]" id="contact">
+      <div className="pl-[350px] pt-[110px]">
+        <p className="text-[18px] tracking-[6px] font-light text-[#A2E4B0]">CONTACT</p>
+        <div className="flex flex-row mt-[-4]">
+          <p className="text-[72px] font-bold">My</p><p className="text-[72px] font-bold text-[#A2E4B0] pl-4">Personal Contact</p>
+        </div>
+        <div className="w-[250px] h-[35px] bg-white border-black border-3 rounded-[25px] mt-8 justify-start flex items-center">
+          <Image src="/images/hp.png" alt="profile" className="rounded-[100px] ml-[-1px]" width={35} height={35} />
+          <p className="text-black font-semibold text-[18px] ml-2">+62895374821794</p>
+        </div>
+        <div className="w-[250px] h-[35px] bg-white border-black border-3 rounded-[25px] mt-6 justify-start flex items-center">
+          <Image src="/images/github.png" alt="profile" className="rounded-[100px] ml-[-1px]" width={35} height={35} />
+          <p className="text-black font-semibold text-[18px] ml-2">Eufrat92</p>
+        </div>
+        <div className="w-[250px] h-[35px] bg-white border-black border-3 rounded-[25px] mt-6 justify-start flex items-center">
+          <Image src="/images/email.png" alt="profile" className="rounded-[100px] ml-[-1px]" width={35} height={35} />
+          <p className="text-black font-semibold text-[18px] ml-2">@dwirepat</p>
+        </div>
+        <div className="w-[250px] h-[35px] bg-white border-black border-3 rounded-[25px] mt-6 justify-start flex items-center">
+          <Image src="/images/linkedin.png" alt="profile" className="rounded-[100px] ml-[-1px]" width={35} height={35} />
+          <p className="text-black font-semibold text-[18px] ml-2">Repat Dwi Gunanda</p>
+        </div>
       </div>
-    </main>
-  );
+    </div>
+  )
+}
+
+function Sidebar() {
+  return (
+    <aside className="fixed">
+      <div className="h-screen w-[235px] flex items-center pt-12 flex-col drop-shadow-[3px_3px_3px_#000000] bg-[#4d4d4d]">
+        <div className="h-[155px] w-[155px] bg-white rounded-[100px] justify-centern p-1">
+          <Image src="/images/profile.jpeg" alt="profile" className="rounded-[100px]" width={150} height={150} />
+        </div>
+        <div className=" mt-[5px] flex items-center flex-col">
+        <Link href="#about" id="about-button" className="mt-[35px] rounded-[15px] flex justify-start p-0 hover:border-2 border-black">
+          <div className="h-[40px] w-[40px] flex items-center justify-center rounded-tl-[15px] rounded-bl-[15px]">
+            <Image src="/images/info-white.png" alt="profile" width={25} height={25}/>
+          </div>
+          <div className="h-[40px] w-[115px] justify-center items-center flex rounded-tr-[15px] rounded-br-[15px]">
+            <p>About me</p>
+          </div>
+        </Link>
+        <Link href="#portofolio" id="portofolio-button" className="mt-[20px] rounded-[15px] flex justify-start p-0 hover:border-2 border-black">
+          <div className="h-[40px] w-[40px] flex items-center justify-center rounded-tl-[15px] rounded-bl-[15px]">
+            <Image src="/images/docs-white.png" alt="profile" width={25} height={25}/>
+          </div>
+          <div className="h-[40px] w-[115px] justify-center items-center flex rounded-tr-[15px] rounded-br-[15px]">
+            <p>Portofolio</p>
+          </div>
+        </Link>
+        <Link href="#skills" id="skills-button" className="mt-[20px] rounded-[15px] flex justify-start p-0 hover:border-2 border-black">
+          <div className="h-[40px] w-[40px] flex items-center justify-center rounded-tl-[15px] rounded-bl-[15px]">
+            <Image src="/images/skills-white.png" alt="profile" width={25} height={25}/>
+          </div>
+          <div className="h-[40px] w-[115px] justify-center items-center flex rounded-tr-[15px] rounded-br-[15px]">
+            <p>Skills</p>
+          </div>
+        </Link>
+        <Link href="#contact" id="contact-button" className="mt-[20px] rounded-[15px] flex justify-start p-0 hover:border-2 border-black">
+          <div className="h-[40px] w-[40px] flex items-center justify-center rounded-tl-[15px] rounded-bl-[15px]">
+            <Image src="/images/contact-white.png" alt="profile" width={30} height={30}/>
+          </div>
+          <div className="h-[40px] w-[115px] justify-center items-center flex rounded-tr-[15px] rounded-br-[15px]">
+            <p>Contact</p>
+          </div>
+        </Link>
+        </div>
+      </div>
+    </aside>
+  )
 }
